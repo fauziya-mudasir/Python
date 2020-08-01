@@ -15,7 +15,7 @@ def timeTracker():
     startTime = input("Enter start time:")
     endTime =input("Enter end time:")
     rate = int(input("Enter your hourly rate:"))
-    
+    #using the python built in library datetime, we can calculate the time difference between two dates
     diff = datetime.datetime.strptime(endTime, datetimeFormat)-datetime.datetime.strptime(startTime, datetimeFormat)
     seconds = (diff.seconds)/3600
     days= (diff.days)* 24
@@ -23,6 +23,7 @@ def timeTracker():
     print("Your total hours worked is  %d hours" % ( totalHours))
     moneyEarned= totalHours * rate
     myDict[date]=[startTime,endTime,totalHours,moneyEarned]
+   
     df = pd.DataFrame.from_dict(myDict, orient='index',
                            columns=['Start_Time', 'End_Time', 'Total_hours', 'Money_earned'])
     df.to_csv("time_tracker.csv")
