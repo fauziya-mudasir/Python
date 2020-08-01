@@ -23,6 +23,7 @@ def timeTracker():
     print("Your total hours worked is  %d hours" % ( totalHours))
     moneyEarned= totalHours * rate
     myDict[date]=[startTime,endTime,totalHours,moneyEarned]
+    #using pandas to convert the dictionary into a dataframe and create a CSV file
    
     df = pd.DataFrame.from_dict(myDict, orient='index',
                            columns=['Start_Time', 'End_Time', 'Total_hours', 'Money_earned'])
